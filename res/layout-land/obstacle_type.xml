@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/Orange"
+    android:gravity="top|center_vertical|center_horizontal|center" >
+
+    <TextView
+        android:id="@+id/select_obstacle"
+        android:textColor="@color/Black"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="19dp"
+        android:gravity="center_horizontal"
+        android:text="@string/select_obstacle"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <RadioGroup
+        android:id="@+id/radioGroup1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true" >
+
+        <RadioButton
+            android:id="@+id/quality"
+            android:textColor="@color/Black"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/quality" />
+
+        <RadioButton
+            android:id="@+id/sudden_end"
+            android:textColor="@color/Black"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/sudden_end" />
+
+        <RadioButton
+            android:id="@+id/congestion"
+            android:layout_width="match_parent"
+            android:textColor="@color/Black"
+            android:layout_height="wrap_content"
+            android:text="@string/congestion" />
+
+        <RadioButton
+            android:id="@+id/lighting"
+            android:textColor="@color/Black"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/lighting" />
+
+        <RadioButton
+            android:id="@+id/ped_cc"
+            android:textColor="@color/Black"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/ped_cc" />
+
+        <RadioButton
+            android:id="@+id/trans_cc"
+            android:textColor="@color/Black"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/trans_cc" />
+
+        <RadioButton
+            android:id="@+id/veh_cc"
+            android:textColor="@color/Black"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/veh_cc" />
+
+        <RadioButton
+            android:id="@+id/other_problem"
+            android:textColor="@color/Black"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/other_problem" />
+    </RadioGroup>
+
+</RelativeLayout>

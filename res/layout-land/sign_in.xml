@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/sign_in"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/Orange"
+    android:orientation="vertical" >
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="22dp"
+        android:src="@drawable/velobstacles" />
+
+    <Button
+        android:id="@+id/skip"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/imageView1"
+        android:layout_alignParentBottom="true"
+        android:layout_alignRight="@+id/login"
+        android:layout_marginBottom="175dp"
+        android:text="@string/skip" />
+
+    <Button
+        android:id="@+id/login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/skip"
+        android:layout_alignLeft="@+id/imageView1"
+        android:layout_alignRight="@+id/imageView1"
+        android:layout_marginBottom="18dp"
+        android:text="@string/sign_in" />
+
+</RelativeLayout>

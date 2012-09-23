@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main_menu"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/Orange"
+    android:orientation="vertical" >
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="22dp"
+        android:src="@drawable/velobstacles" />
+
+    <Button
+        android:id="@+id/browse"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/imageView1"
+        android:layout_alignParentBottom="true"
+        android:layout_alignRight="@+id/find"
+        android:layout_marginBottom="175dp"
+        android:text="@string/browse" />
+
+    <Button
+        android:id="@+id/find"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/browse"
+        android:layout_alignLeft="@+id/imageView1"
+        android:layout_alignRight="@+id/imageView1"
+        android:layout_marginBottom="18dp"
+        android:text="@string/find" />
+
+    <Button
+        android:id="@+id/report"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/find"
+        android:layout_alignLeft="@+id/find"
+        android:layout_alignRight="@+id/find"
+        android:layout_marginBottom="18dp"
+        android:text="@string/report" />
+
+</RelativeLayout>

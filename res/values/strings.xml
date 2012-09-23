@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="hello">Hello World, Splash!</string>
+    <string name="app_name">Velobstacles</string>
+    <string name="tap">Tap anywhere to continue !</string>
+    <string name="tap_french">Touchez L\'écran pour continuer !</string>
+    <string name="sign_in">Sign in</string>
+    <string name="skip">Skip to app</string>
+    <string name="report">Report an Obstacle</string>
+	<string name="browse">Browse reported Obstacles</string>
+    <string name="find">Find a Bicycle Service</string>
+    <string name="select_obstacle">Please select an obstacle type.</string>
+    <string name="quality">Road Quality</string>
+    <string name="sudden_end">Path Ends Suddenly</string>
+    <string name="congestion">Cyclist Congestion</string>
+    <string name="lighting">Poor Lighting</string>
+    <string name="ped_cc">Close Call with Pedestrian</string>
+    <string name="trans_cc">Close Call with Public Tansport</string>
+	<string name="veh_cc">Close Call with Motorist</string>
+	<string name="other_problem">General Problems</string>
+	
+</resources>
