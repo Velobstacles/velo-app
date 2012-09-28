@@ -7,9 +7,9 @@
     <string name="tap_french">Touchez L\'écran pour continuer !</string>
     <string name="sign_in">Sign in</string>
     <string name="skip">Skip to app</string>
-    <string name="report">Report an Obstacle</string>
-	<string name="browse">Browse reported Obstacles</string>
-    <string name="find">Find a Bicycle Service</string>
+    <string name="menu_report">Report an Obstacle</string>
+    <string name="browse">Browse reported Obstacles</string>
+    <string name="menu_services">Find a Bicycle Service</string>
     <string name="select_obstacle">Please select an obstacle type.</string>
     <string name="quality">Road Quality</string>
     <string name="sudden_end">Path Ends Suddenly</string>
@@ -17,7 +17,14 @@
     <string name="lighting">Poor Lighting</string>
     <string name="ped_cc">Close Call with Pedestrian</string>
     <string name="trans_cc">Close Call with Public Tansport</string>
-	<string name="veh_cc">Close Call with Motorist</string>
-	<string name="other_problem">General Problems</string>
-	
+    <string name="veh_cc">Close Call with Motorist</string>
+    <string name="other_problem">General Problems</string>
+    <string name="menu_view_map">View Map</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="menu_settings">Settings</string>
+    <string name="title_activity_test_menu">TestMenu</string>
+    <string name="title_activity_table">Table</string>
+    <string name="desc_logo">Velobstacles</string>
+    <string name="title_activity_main_screen">MainScreen</string>
+
 </resources>

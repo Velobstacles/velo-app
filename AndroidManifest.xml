@@ -18,16 +18,36 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity 
-            android:name=".SignIn">
-            
+        <activity android:name=".SignIn" >
         </activity>
-        <activity 
-            android:name=".MainMenu">
-           
+        <activity android:name=".MainMenu" >
         </activity>
-        <activity 
-            android:name=".ObstacleType" >
+        <activity android:name=".ObstacleType" >
+        </activity>
+        <activity
+            android:name=".TestMenu"
+            android:label="@string/title_activity_test_menu" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="mtl.hackathon.velobstacles.SignIn" />
+        </activity>
+        <activity
+            android:name=".Table"
+            android:label="@string/title_activity_table" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".MainScreen"
+            android:label="@string/title_activity_main_screen" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
     </application>
 
