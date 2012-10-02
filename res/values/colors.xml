@@ -141,4 +141,5 @@
  <color name="Navy">#000080</color>
  <color name="Black">#000000</color>
  <color name="Velobstacles">#99CC00</color>
+ <color name="Velobstacles_dark">#669900</color>
 </resources>

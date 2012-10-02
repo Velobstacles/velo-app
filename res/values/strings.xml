@@ -26,5 +26,6 @@
     <string name="title_activity_table">Table</string>
     <string name="desc_logo">Velobstacles</string>
     <string name="title_activity_main_screen">MainScreen</string>
+    <string name="title_activity_grid_menu">GridMenu</string>
 
 </resources>

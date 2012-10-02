@@ -25,24 +25,5 @@
         android:layout_marginBottom="175dp"
         android:text="@string/browse" />
 
-    <!-- <Button
-        android:id="@+id/find"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/browse"
-        android:layout_alignLeft="@+id/imageView1"
-        android:layout_alignRight="@+id/imageView1"
-        android:layout_marginBottom="18dp"
-        android:text="@string/menu_services" />
-
-    <Button
-        android:id="@+id/report"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/find"
-        android:layout_alignLeft="@+id/find"
-        android:layout_alignRight="@+id/find"
-        android:layout_marginBottom="18dp"
-        android:text="@string/menu_report" /> -->
 
 </RelativeLayout>
