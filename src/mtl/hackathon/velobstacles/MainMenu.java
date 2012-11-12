@@ -30,7 +30,7 @@ public class MainMenu extends Activity implements OnClickListener {
 		
 		case R.id.report:
 			
-			Intent reportActivity = new Intent(this, ObstacleType.class);
+			Intent reportActivity = new Intent(this, ReportObstacle.class);
 			startActivity(reportActivity);
 			break;
 		

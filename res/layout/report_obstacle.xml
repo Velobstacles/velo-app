@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="fill_parent"
+  android:layout_height="fill_parent"
+  android:fillViewport="true">
+               
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"	
+        android:orientation="vertical"
+      android:background="#ffffff" >      
+      
+        <!-- Header -->
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="17dp"
+            android:text="@string/menu_report"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@color/Velobstacles_dark" />
+
+    <LinearLayout 
+        android:layout_width="match_parent"
+        android:id="@+id/linearLayout1" 
+        android:layout_height="wrap_content">
+        
+        <!-- Category -->
+        <EditText 
+            android:layout_weight="1" 
+            android:id="@+id/categories"
+            android:layout_height="wrap_content" 
+            android:layout_width="0dp"
+            android:inputType="text"
+          	android:layout_marginLeft="20dp"
+            android:layout_marginRight="10dp"
+         	android:layout_marginTop="24dp"
+  			android:hint="@string/r_category"/>
+        <Button 
+            android:id="@+id/button1" 
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content" 
+        	android:drawableLeft="@drawable/dark_action_search"
+            style="?android:attr/buttonStyleSmall"
+         	android:layout_marginTop="24dp"
+         	android:layout_marginRight="20dp" />
+    </LinearLayout>        
+        
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+      android:background="#ffffff" >
+        
+        <!-- Incident Location -->
+        <EditText
+          android:id="@+id/location_addr"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+         android:layout_marginLeft="20dp"
+          android:layout_marginRight="10dp"
+        android:layout_marginTop="24dp"
+          android:ems="10"
+          android:hint="@string/r_location"
+          android:inputType="textPostalAddress" 
+          android:layout_weight="1"/>
+
+        <Button
+            android:id="@+id/find_location"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+      		android:layout_marginTop="24dp"
+         	android:layout_marginRight="20dp"
+          android:drawableLeft="@drawable/dark_action_search" />
+        
+</LinearLayout>
+        <!-- Location Name -->
+      <EditText
+          android:id="@+id/location_name"
+          android:layout_width="fill_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginLeft="21dp"              
+          android:layout_marginRight="21dp"
+          android:layout_marginTop="14dp"
+          android:ems="10"
+          android:hint="@string/r_location_name"
+          android:inputType="text" >
+
+          <requestFocus />
+      </EditText>              
+      
+      <!-- Description -->
+        <EditText
+         android:id="@+id/editText4"
+         android:layout_width="fill_parent"
+         android:layout_height="100dp"            
+	  		android:layout_marginLeft="21dp"   
+	  		android:layout_marginRight="21dp"
+       	android:layout_marginTop="14dp"  
+            android:ems="10"
+            android:hint="@string/r_description"
+            android:inputType="text"
+            android:singleLine="false"
+            android:gravity="top" />
+    </LinearLayout>
+
+</ScrollView>

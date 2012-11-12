@@ -7,7 +7,7 @@
     <string name="tap_french">Touchez L\'écran pour continuer !</string>
     <string name="sign_in">Sign in</string>
     <string name="skip">Skip to app</string>
-    <string name="menu_report">Report an Obstacle</string>
+    <string name="menu_report">Take a Photo/Video</string>
     <string name="browse">Browse reported Obstacles</string>
     <string name="menu_services">Find a Bicycle Service</string>
     <string name="select_obstacle">Please select an obstacle type.</string>
@@ -19,7 +19,7 @@
     <string name="trans_cc">Close Call with Public Tansport</string>
     <string name="veh_cc">Close Call with Motorist</string>
     <string name="other_problem">General Problems</string>
-    <string name="menu_view_map">Browse Reports</string>
+    <string name="menu_view_map">Browse Map</string>
     <string name="hello_world">Hello world!</string>
     <string name="menu_settings">Settings</string>
     <string name="title_activity_test_menu">TestMenu</string>
@@ -29,5 +29,29 @@
     <string name="title_activity_grid_menu">GridMenu</string>
     <string name="menu_logout">Logout</string>
     <string name="title_activity_report_obstacle">ReportObstacle</string>
-
+    <string name="title_activity_settings_menu">SettingsMenu</string>
+	<string name="r_category">Category</string>
+    <string name="r_title">Title</string>
+	<string name="r_description">Description</string>
+	<string name="r_location">Incident Location</string>
+	<string name="r_location_name">Location Name</string>
+	<string name="r_upload">Upload Picture/Video</string>
+	<string name="r_submit">Submit</string>
+	<string-array name="r_categories">
+	    <item>Road Quality</item>
+	    <item>Path Ends Suddenly</item>
+	    <item>Cyclist Congestion</item>
+	    <item>Poor Lighting</item>
+	    <item>Close Call with Pedestrian</item>
+	    <item>Close Call with Public Tansport</item>
+	    <item>Close Call with Motorist</item>
+	    <item>General Problems</item>
+    </string-array>
+	<string name="ok">OK</string>
+	<string name="cancel">Cancel</string>	
+	<string name="thanks">Thanks for taking the time to make cyclists\' trips safer!</string>
+	<string name="return_main">Return to main menu</string>
+    <string name="app_name">Velobstacles</string>
+    <string name="tap">Tap anywhere to continue !</string>
+    <string name="tap_french">Touchez L\'écran pour continuer !</string>		
 </resources>

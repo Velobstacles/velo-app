@@ -142,4 +142,6 @@
  <color name="Black">#000000</color>
  <color name="Velobstacles">#99CC00</color>
  <color name="Velobstacles_dark">#669900</color>
+ <color name="Velobstacles_light">#C6E36B</color>
+ <color name="Button">#FFCC66</color>
 </resources>

@@ -17,12 +17,10 @@ public class MainScreen extends Activity implements OnClickListener {
         Button main_report = (Button) findViewById(R.id.report);
         Button main_viewmap = (Button) findViewById(R.id.view_map);
         Button main_services = (Button) findViewById(R.id.services);
-        Button main_settings = (Button) findViewById(R.id.settings);
         
         main_report.setOnClickListener(this);
         main_viewmap.setOnClickListener(this);
         main_services.setOnClickListener(this);
-        main_settings.setOnClickListener(this);        
     }
 
 /*    @Override
@@ -38,7 +36,7 @@ public class MainScreen extends Activity implements OnClickListener {
 		
 			case R.id.report:
 				
-				Intent reportActivity = new Intent(this, ObstacleType.class);
+				Intent reportActivity = new Intent(this, ReportObstacle.class);
 				startActivity(reportActivity);
 				break;
 				
@@ -50,9 +48,6 @@ public class MainScreen extends Activity implements OnClickListener {
 				
 				break;
 				
-			case R.id.settings:
-				
-				break;
 		}	
 			
 		

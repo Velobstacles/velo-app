@@ -1,41 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- 
 Creator: Allison Yan
-Latest update: October 2, 2012
+Latest update: October 4, 2012
  -->
 <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="fill_parent"
-    android:background="@color/Velobstacles"
-    android:gravity="center_vertical"
+    android:background="@color/White"
     android:shrinkColumns="*"
-    android:stretchColumns="*" >
-
-    <ImageView
-        android:id="@+id/imageView1"
-        android:layout_width="wrap_content"
+    android:stretchColumns="0" >
+<!--  android:gravity="center_vertical"-->
+    
+    <TableRow
+        android:id="@+id/tableRow0"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="5dp"
-        android:contentDescription="@string/desc_logo"
-        android:src="@drawable/velobstacles" />
+        android:background="@color/Velobstacles"
+        android:gravity="center"
+        android:paddingTop="10dp" >
+        
+	    <ImageView
+	        android:id="@+id/imageView1"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:contentDescription="@string/desc_logo"
+	        android:src="@drawable/velobstacles"/>
+	  </TableRow>
 
     <TableRow
         android:id="@+id/tableRow1"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp"
-        android:paddingTop="12dp" >
-
-        <Button
+        android:paddingLeft="35dp"
+        android:paddingRight="35dp"
+        android:paddingTop="35dp" >
+      <Button
+          android:id="@+id/upload_media"
+            style="@style/button"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:drawableTop="@drawable/device_access_camera"
+          android:text="@string/menu_report"
+      		android:drawablePadding="2dp"
+      		android:gravity="center_horizontal"
+      		android:layout_weight="1" />
+      <!--  
+          android:text="@string/menu_report" -->
+     <!--   <Button
             android:id="@+id/report"
             style="@style/button"
             android:layout_width="match_parent"
-            android:layout_height="55dp"
+            android:layout_height="50dp"
             android:layout_weight="1"
             android:paddingLeft="15dp"
             android:text="@string/menu_report"
-            android:textSize="15sp" />
+            android:textSize="15sp" /> -->  
 
     </TableRow>
 
@@ -43,64 +62,45 @@ Latest update: October 2, 2012
         android:id="@+id/tableRow2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp"
+        android:paddingLeft="35dp"
+        android:paddingRight="35dp"
         android:paddingTop="12dp" >
 
-        <Button
-            android:id="@+id/view_map"
+            <Button
+          android:id="@+id/view_map"
             style="@style/button"
-            android:layout_width="fill_parent"
-            android:layout_height="55dp"
-            android:layout_weight="1"
-            android:text="@string/menu_view_map"
-            android:textSize="15sp" />
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:drawableTop="@drawable/location_map"
+      		android:drawablePadding="2dp"
+      		android:gravity="center_horizontal"
+      		android:layout_weight="2" 
+      		android:text="@string/menu_view_map"/>
+          <!-- android:text="@string/menu_view_map" -->
     </TableRow>
 
     <TableRow
         android:id="@+id/tableRow3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp"
+        android:paddingLeft="35dp"
+        android:paddingRight="35dp"
         android:paddingTop="12dp" >
-
-        <Button
-            android:id="@+id/services"
+      <Button
+          android:id="@+id/services"
             style="@style/button"
-            android:layout_width="fill_parent"
-            android:layout_height="55dp"
-            android:layout_weight="1"
-            android:text="@string/menu_services"
-            android:textSize="15sp" />
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:drawableTop="@drawable/action_search"
+      		android:drawablePadding="2dp"
+      		android:gravity="center_horizontal"
+      		android:text="@string/menu_services"
+      		android:layout_weight="1" />
+      
+      <!--  
+          android:text="@string/menu_services" -->
     </TableRow>
-
- <TableRow
-     android:id="@+id/tableRow4"
-     android:layout_width="wrap_content"
-     android:layout_height="wrap_content"
-     android:paddingLeft="20dp"
-     android:paddingRight="20dp"
-     android:paddingTop="12dp" >
-
-        <Button
-            android:id="@+id/settings"            
-            style="@style/button"
-            android:layout_width="fill_parent"
-            android:layout_height="55dp"
-            android:layout_weight="1"
-            android:text="@string/menu_settings"
-            android:textSize="15sp" />
         
-        <Button
-            android:id="@+id/logout"
-            style="@style/button"
-            android:layout_width="fill_parent"
-            android:layout_height="55dp"
-            android:layout_weight="1"
-            android:text="@string/menu_logout"
-            android:textSize="15sp" />        
 
-    </TableRow>    
     
 </TableLayout>
