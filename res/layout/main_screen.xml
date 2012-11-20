@@ -29,21 +29,23 @@ Latest update: October 4, 2012
 
     <TableRow
         android:id="@+id/tableRow1"
-        android:layout_width="fill_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingLeft="35dp"
-        android:paddingRight="35dp"
-        android:paddingTop="35dp" >
+        android:layout_marginLeft="70dp"
+        android:layout_marginRight="70dp"
+        android:layout_marginTop="75dp">
+
       <Button
           android:id="@+id/upload_media"
-            style="@style/button"
+          style="@style/button"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
+          android:layout_weight="1"
+          android:drawablePadding="2dp"
           android:drawableTop="@drawable/device_access_camera"
-          android:text="@string/menu_report"
-      		android:drawablePadding="2dp"
-      		android:gravity="center_horizontal"
-      		android:layout_weight="1" />
+          android:gravity="center_horizontal"
+          android:text="@string/menu_report" />
+
       <!--  
           android:text="@string/menu_report" -->
      <!--   <Button
@@ -62,9 +64,9 @@ Latest update: October 4, 2012
         android:id="@+id/tableRow2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingLeft="35dp"
-        android:paddingRight="35dp"
-        android:paddingTop="12dp" >
+        android:layout_marginLeft="70dp"
+        android:layout_marginRight="70dp"
+        android:layout_marginTop="20dp">
 
             <Button
           android:id="@+id/view_map"
@@ -83,9 +85,9 @@ Latest update: October 4, 2012
         android:id="@+id/tableRow3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingLeft="35dp"
-        android:paddingRight="35dp"
-        android:paddingTop="12dp" >
+        android:layout_marginLeft="70dp"
+        android:layout_marginRight="70dp"
+        android:layout_marginTop="20dp">
       <Button
           android:id="@+id/services"
             style="@style/button"

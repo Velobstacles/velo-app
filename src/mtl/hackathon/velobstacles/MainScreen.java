@@ -14,11 +14,11 @@ public class MainScreen extends Activity implements OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_screen);
         
-        Button main_report = (Button) findViewById(R.id.report);
+        Button main_upload = (Button) findViewById(R.id.upload_media);
         Button main_viewmap = (Button) findViewById(R.id.view_map);
         Button main_services = (Button) findViewById(R.id.services);
         
-        main_report.setOnClickListener(this);
+        main_upload.setOnClickListener(this);
         main_viewmap.setOnClickListener(this);
         main_services.setOnClickListener(this);
     }
@@ -34,10 +34,10 @@ public class MainScreen extends Activity implements OnClickListener {
 		switch(v.getId()) { 
 	
 		
-			case R.id.report:
+			case R.id.upload_media:
 				
-				Intent reportActivity = new Intent(this, ReportObstacle.class);
-				startActivity(reportActivity);
+				Intent pictureActivity = new Intent(this, ServerUpload.class);
+				startActivity(pictureActivity);
 				break;
 				
 			case R.id.view_map:

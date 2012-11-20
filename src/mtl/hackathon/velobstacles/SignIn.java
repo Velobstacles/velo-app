@@ -7,6 +7,8 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 
+import static mtl.hackathon.velobstacles.NumConst.*;
+
 public class SignIn extends Activity implements OnClickListener {
     /** Called when the activity is first created. */
     @Override
@@ -14,7 +16,7 @@ public class SignIn extends Activity implements OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.sign_in);
         
-        Button skipButton = (Button) findViewById(R.id.skip);
+        Button skipButton = (Button) findViewById(R.id.skip_button);
         skipButton.setOnClickListener(this);
         
     }
@@ -24,13 +26,29 @@ public class SignIn extends Activity implements OnClickListener {
 		
 		switch(v.getId()) {
 		
-		case R.id.skip:
+		case R.id.skip_button:
 			
+			this.finish();
 			Intent i = new Intent(this, MainMenu.class);
-			startActivity(i);
+			startActivityForResult(i, NOTHING);
 			break;
 		
 		}
 		
 	}
+	
+	@Override
+	public void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+		switch (requestCode) {
+		
+		case EXIT_ALL:
+			
+			this.finish();
+			break;
+			
+		}
+		
+	}
+	
 }

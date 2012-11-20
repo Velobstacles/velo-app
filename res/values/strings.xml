@@ -50,8 +50,5 @@
 	<string name="ok">OK</string>
 	<string name="cancel">Cancel</string>	
 	<string name="thanks">Thanks for taking the time to make cyclists\' trips safer!</string>
-	<string name="return_main">Return to main menu</string>
-    <string name="app_name">Velobstacles</string>
-    <string name="tap">Tap anywhere to continue !</string>
-    <string name="tap_french">Touchez L\'écran pour continuer !</string>		
+	<string name="return_main">Return to main menu</string><string name="login">Login</string><string name="login_facebook">Login with</string>		
 </resources>

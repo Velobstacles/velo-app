@@ -12,7 +12,6 @@ import android.content.DialogInterface.*;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
 import android.content.DialogInterface.OnMultiChoiceClickListener;
-import android.widget.Toast;
 
 public class ReportObstacle extends Activity implements OnClickListener {
 	
