@@ -49,6 +49,9 @@
     </string-array>
 	<string name="ok">OK</string>
 	<string name="cancel">Cancel</string>	
+	<string name="login">Login</string>
+	<string name="login_facebook">Login with</string>
+	<string name="next">next</string>
 	<string name="thanks">Thanks for taking the time to make cyclists\' trips safer!</string>
-	<string name="return_main">Return to main menu</string><string name="login">Login</string><string name="login_facebook">Login with</string>		
+	<string name="return_main">Return to main menu</string>		
 </resources>

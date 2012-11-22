@@ -29,7 +29,7 @@ public class SignIn extends Activity implements OnClickListener {
 		case R.id.skip_button:
 			
 			this.finish();
-			Intent i = new Intent(this, MainMenu.class);
+			Intent i = new Intent(this, MainScreen.class);
 			startActivityForResult(i, NOTHING);
 			break;
 		

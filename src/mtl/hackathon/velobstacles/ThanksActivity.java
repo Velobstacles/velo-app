@@ -29,7 +29,7 @@ public class ThanksActivity extends Activity {
 				// TODO Auto-generated method stub
 				
 				ThanksActivity.this.finish();
-				Intent mainIntent = new Intent(ThanksActivity.this, MainMenu.class);
+				Intent mainIntent = new Intent(ThanksActivity.this, MainScreen.class);
 				startActivityForResult(mainIntent, NOTHING);
 				
 			}
