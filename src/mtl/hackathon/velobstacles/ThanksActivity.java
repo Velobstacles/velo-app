@@ -30,7 +30,7 @@ public class ThanksActivity extends Activity {
 				
 				ThanksActivity.this.finish();
 				Intent mainIntent = new Intent(ThanksActivity.this, MainScreen.class);
-				startActivityForResult(mainIntent, NOTHING);
+				startActivity(mainIntent);
 				
 			}
 			
@@ -38,20 +38,7 @@ public class ThanksActivity extends Activity {
 		
 	}
 	
-	@Override
-	public void onActivityResult(int requestCode, int resultCode, Intent data) {
 
-		switch (requestCode) {
-		
-		case EXIT_ALL:
-			
-			setResult(EXIT_ALL);
-			this.finish();
-			break;
-			
-		}
-		
-	}
 	
 	@Override
 	public void onBackPressed() {
