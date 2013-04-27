@@ -3,8 +3,13 @@ package mtl.hackathon.velobstacles;
 import java.io.ByteArrayOutputStream;
 
 import android.app.Activity;
+import android.content.ContentValues;
+import android.content.Context;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
+import android.database.Cursor;
 import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
@@ -21,7 +26,10 @@ import static mtl.hackathon.velobstacles.NumConst.*;
  */
 public class ObstacleType extends Activity implements OnClickListener{
 	
-	Bitmap obstacleBitmap;
+	private Bitmap obstacleBitmap;
+	private Uri imageUri = null;
+	private Button nextButton = null;
+	private RadioGroup obstacleTypes = null;
 	
 	/** Called when the activity is first created. */
 	@Override
@@ -29,8 +37,10 @@ public class ObstacleType extends Activity implements OnClickListener{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.obstacle_type);
 		
-		Button nextButton = (Button) findViewById(R.id.next_button);
-		RadioGroup obstacleTypes = (RadioGroup) findViewById(R.id.radioGroup1);
+		nextButton = (Button) findViewById(R.id.next_button);
+		// disable the submit button until radio button is selected
+		nextButton.setEnabled(false);
+	    obstacleTypes = (RadioGroup) findViewById(R.id.radioGroup1);
 		
 		nextButton.setOnClickListener(this);
 		obstacleTypes.setOnCheckedChangeListener(new OnCheckedChangeListener() {
@@ -42,35 +52,32 @@ public class ObstacleType extends Activity implements OnClickListener{
 				
 				case R.id.quality:
 					
-					break;
 					
 				case R.id.sudden_end:
 					
-					break;
 				
 				case R.id.congestion:
 					
-					break;
 					
 				case R.id.lighting:
 					
-					break;
 					
 				case R.id.other_problem:
 					
-					break;
 					
 				case R.id.ped_cc:
 					
-					break;
 					
 				case R.id.trans_cc:
 					
-					break;
 					
 				case R.id.veh_cc:
-					
+					ObstacleType.this.nextButton.setEnabled(true);
+
 					break;
+					
+				default:
+					ObstacleType.this.nextButton.setEnabled(false);
 				
 				}
 				
@@ -92,7 +99,16 @@ public class ObstacleType extends Activity implements OnClickListener{
 		
 		case R.id.next_button:
 			
+			// determine which option was selected
+			int obstacleSelected = ((RadioGroup) findViewById(R.id.radioGroup1)).getCheckedRadioButtonId();
+			
+			String filename = "velobstacles" + System.currentTimeMillis();
+			ContentValues values = new ContentValues();
+			values.put(MediaStore.Images.Media.TITLE, filename);
+			imageUri = getContentResolver().insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, values);
+			
 			Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+			cameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, imageUri);
 			startActivityForResult(cameraIntent, CAPTURE_IMAGE);
 			break;
 			
@@ -113,22 +129,29 @@ public class ObstacleType extends Activity implements OnClickListener{
 			
 			if (resultCode == Activity.RESULT_OK) {
 				
-				obstacleBitmap = (Bitmap) data.getExtras().get("data");
-				ByteArrayOutputStream bos = new ByteArrayOutputStream();
-				obstacleBitmap.compress(Bitmap.CompressFormat.PNG, 100, bos);
-				byte[] imageBytes = bos.toByteArray();
+				//obstacleBitmap = (Bitmap) data.getExtras().get("data");
+				//ByteArrayOutputStream bos = new ByteArrayOutputStream();
+				//obstacleBitmap.compress(Bitmap.CompressFormat.PNG, 100, bos);
+				//byte[] imageBytes = bos.toByteArray();
+				
+			      String[] projection = { MediaStore.Images.Media.DATA}; 
+		            Cursor cursor = null;
+		            try {
+		            	cursor = getContentResolver().query(imageUri, projection, null, null, null); 
+		            } catch (Exception e) {
+		            	e.printStackTrace();
+		            }
+		            int column_index_data = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA); 
+		            cursor.moveToFirst(); 
+		            String capturedImageFilePath = cursor.getString(column_index_data);
+				
+				//Uri u = data.getData();
 				
 				Intent serverIntent = new Intent(this, ServerUpload.class);
-				serverIntent.putExtra(IMAGE_BYTES, imageBytes);
-				startActivityForResult(serverIntent, NOTHING);
+				//serverIntent.putExtra(IMAGE_BYTES, imageBytes);
+				serverIntent.putExtra(IMAGE_PATH, capturedImageFilePath);
+				startActivity(serverIntent);
 			}
-			
-			break;
-			
-		case EXIT_ALL:
-			
-			setResult(EXIT_ALL);
-			finish();
 			
 			break;
 		

@@ -1,19 +1,26 @@
+/*
+ * TO-DO:
+ * Deal with leaked service problem.
+ * Get GPS working.
+ */
+
 package mtl.hackathon.velobstacles;
 
-import static mtl.hackathon.velobstacles.NumConst.EXIT_ALL;
-import static mtl.hackathon.velobstacles.NumConst.NOTHING;
+import mtl.hackathon.velobstacles.GPS.LocalBinder;
 import android.app.Activity;
-import android.app.AlertDialog;
-import android.content.DialogInterface;
+import android.content.ComponentName;
+import android.content.Context;
 import android.content.Intent;
+import android.content.ServiceConnection;
 import android.os.Bundle;
+import android.os.IBinder;
 import android.widget.Button;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.app.Activity;
 
 public class MainScreen extends Activity implements OnClickListener {
 
+	
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,6 +33,7 @@ public class MainScreen extends Activity implements OnClickListener {
         main_report.setOnClickListener(this);
         main_viewmap.setOnClickListener(this);
         main_services.setOnClickListener(this);
+        
     }
 
 /*    @Override
@@ -42,7 +50,7 @@ public class MainScreen extends Activity implements OnClickListener {
 		case R.id.report:
 			
 			Intent reportActivity = new Intent(this, ObstacleType.class);
-			startActivityForResult(reportActivity, NOTHING);
+			startActivity(reportActivity);
 			break;
 		
 		case R.id.browse:
@@ -56,56 +64,48 @@ public class MainScreen extends Activity implements OnClickListener {
 		}
 		
 	}
-		
-	private void exitApplication() {
-		
-		AlertDialog.Builder alertDialog = new AlertDialog.Builder(MainScreen.this);
-		
-		alertDialog.setPositiveButton("Yes", new android.content.DialogInterface.OnClickListener() {
+	
+	GPS gpsService;
+	boolean mBound = false;
+	private ServiceConnection mConnection = new ServiceConnection() {
+	    // Called when the connection with the service is established
+	    public void onServiceConnected(ComponentName className, IBinder service) {
+	        // Because we have bound to an explicit
+	        // service that is running in our own process, we can
+	        // cast its IBinder to a concrete class and directly access it.
+	        LocalBinder binder = (LocalBinder) service;
+	        gpsService = binder.getGPS();
+	        mBound = true;
+	    }
 
-			public void onClick(DialogInterface dialog, int which) {
-				
-				setResult(EXIT_ALL);
-				finish();
-				//System.runFinalizersOnExit(true);
-				//System.exit(0);
-			    //android.os.Process.killProcess(android.os.Process.myPid());
-				
-			}			
-		});
-		
-		alertDialog.setNegativeButton("No", null);
-		alertDialog.setMessage("Do you wish to exit?");
-		alertDialog.setTitle("Velobstacles");
-		alertDialog.show();
-		
+
+		public void onServiceDisconnected(ComponentName arg0) {
+			// TODO Auto-generated method stub
+            mBound = false;
+
+		}
+
+	};
+	@Override
+	public void onStart() {
+		super.onStart();
+		Intent intent = new Intent(this, GPS.class);
+		bindService(intent, mConnection, Context.BIND_AUTO_CREATE);
 	}
 	
 	@Override
-	public void onActivityResult(int requestCode, int resultCode, Intent data) {
-
-		switch (requestCode) {
-		
-		case EXIT_ALL:
-			
-			setResult(EXIT_ALL);
-			this.finish();
-			break;
-			
+	public void onDestroy() {
+		super.onDestroy();
+		if (gpsService != null) {
+			gpsService.stopUsingGPS();
+            unbindService(mConnection);
 		}
-		
 	}
 	
-	/**
-	 * prompts the user to exit the application if the back button is pressed.
-	 */
 	@Override
 	public void onBackPressed() {
-		
-		exitApplication();
-		
-	}		
+		return;
+	}
 	
-		
 }
 

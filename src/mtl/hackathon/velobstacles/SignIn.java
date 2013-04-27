@@ -30,25 +30,13 @@ public class SignIn extends Activity implements OnClickListener {
 			
 			this.finish();
 			Intent i = new Intent(this, MainScreen.class);
-			startActivityForResult(i, NOTHING);
+			startActivity(i);
 			break;
 		
 		}
 		
 	}
 	
-	@Override
-	public void onActivityResult(int requestCode, int resultCode, Intent data) {
 
-		switch (requestCode) {
-		
-		case EXIT_ALL:
-			
-			this.finish();
-			break;
-			
-		}
-		
-	}
 	
 }
