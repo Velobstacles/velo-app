@@ -6,20 +6,20 @@
 
 package mtl.hackathon.velobstacles;
 
-import mtl.hackathon.velobstacles.GPS.LocalBinder;
 import android.app.Activity;
-import android.content.ComponentName;
-import android.content.Context;
 import android.content.Intent;
-import android.content.ServiceConnection;
 import android.os.Bundle;
-import android.os.IBinder;
 import android.widget.Button;
 import android.view.View;
 import android.view.View.OnClickListener;
 
 public class MainScreen extends Activity implements OnClickListener {
 
+	static final LocationUpdater _locationUpdater;
+	
+	static {
+		_locationUpdater = LocationUpdater.getLocationUpdaterInstance();
+	}
 	
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -65,46 +65,21 @@ public class MainScreen extends Activity implements OnClickListener {
 		
 	}
 	
-	GPS gpsService;
-	boolean mBound = false;
-	private ServiceConnection mConnection = new ServiceConnection() {
-	    // Called when the connection with the service is established
-	    public void onServiceConnected(ComponentName className, IBinder service) {
-	        // Because we have bound to an explicit
-	        // service that is running in our own process, we can
-	        // cast its IBinder to a concrete class and directly access it.
-	        LocalBinder binder = (LocalBinder) service;
-	        gpsService = binder.getGPS();
-	        mBound = true;
-	    }
-
-
-		public void onServiceDisconnected(ComponentName arg0) {
-			// TODO Auto-generated method stub
-            mBound = false;
-
-		}
-
-	};
-	@Override
-	public void onStart() {
-		super.onStart();
-		Intent intent = new Intent(this, GPS.class);
-		bindService(intent, mConnection, Context.BIND_AUTO_CREATE);
-	}
-	
-	@Override
-	public void onDestroy() {
-		super.onDestroy();
-		if (gpsService != null) {
-			gpsService.stopUsingGPS();
-            unbindService(mConnection);
-		}
-	}
-	
 	@Override
 	public void onBackPressed() {
 		return;
+	}
+	
+	@Override
+	public void onStart() {
+		super.onStart();
+		_locationUpdater.start(this);
+	}
+	
+	@Override
+	public void onStop() {
+		super.onStop();
+		_locationUpdater.stop();
 	}
 	
 }

@@ -10,7 +10,6 @@ import java.net.URL;
 
 import javax.activation.MimetypesFileTypeMap;
 
-import mtl.hackathon.velobstacles.GPS.LocalBinder;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
@@ -29,6 +28,7 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
+import android.location.Criteria;
 import android.location.Location;
 import android.location.LocationManager;
 import android.os.AsyncTask;
@@ -114,21 +114,19 @@ public class ServerUpload extends Activity {
 			}*/
 			
 			// Get GPS Data
-			LocationManager lm = (LocationManager) getSystemService(Context.LOCATION_SERVICE); 
-			Location location = lm.getLastKnownLocation(LocationManager.GPS_PROVIDER);
-			double longitude;
-			double latitude;
+			Location location = MainScreen._locationUpdater.mostRecentLocation();
+			double longitude = 0d;
+			double latitude = 0d;
 			
 			if (location == null) {
 			
-			longitude = 0d;//location.getLongitude();
-			latitude = 0d;//location.getLatitude();
+			longitude = 0d;
+			latitude = 0d;
 			
 			} else {
-				longitude = gpsService.getLongitude();
-				latitude = gpsService.getLatitude();
+				longitude = location.getLongitude();
+				latitude = location.getLatitude();
 			}
-			
 			
 			HttpClient client = new DefaultHttpClient();
 			HttpContext localContext = new BasicHttpContext();
@@ -198,43 +196,6 @@ public class ServerUpload extends Activity {
 			
 		}
 		
-	}
-	
-	GPS gpsService;
-	boolean mBound = false;
-	private ServiceConnection mConnection = new ServiceConnection() {
-	    // Called when the connection with the service is established
-	    public void onServiceConnected(ComponentName className, IBinder service) {
-	        // Because we have bound to an explicit
-	        // service that is running in our own process, we can
-	        // cast its IBinder to a concrete class and directly access it.
-	        LocalBinder binder = (LocalBinder) service;
-	        gpsService = binder.getGPS();
-	        mBound = true;
-	    }
-
-
-		public void onServiceDisconnected(ComponentName arg0) {
-			// TODO Auto-generated method stub
-            mBound = false;
-
-		}
-
-	};
-	@Override
-	public void onStart() {
-		super.onStart();
-		Intent intent = new Intent(this, GPS.class);
-		bindService(intent, mConnection, Context.BIND_AUTO_CREATE);
-	}
-	
-	@Override
-	public void onDestroy() {
-		super.onDestroy();
-		if (gpsService != null) {
-			gpsService.stopUsingGPS();
-            unbindService(mConnection);
-		}
 	}
 	
 	@Override
